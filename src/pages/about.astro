@@ -1,4 +1,5 @@
 ---
+import '../styles/global.css';
 const pageTitle = 'About';
 const identity = {
     firstName: 'Kuba',
@@ -10,11 +11,14 @@ const skills =["HTML", "CSS", "JavaScript", "Astro", "React"];
 const happy = true;
 const finished = false;
 const goal = 3;
+const skillColor = "red";
+const fontWeight = "bold";
+const textCase = "uppercase";
 ---
 <html lang="en">
-    <a href="/">Home</a>
-    <a href="/about/">About</a>
-    <a href="/blog/">Blog</a>
+        <a href="/">Home</a>
+        <a href="/about/">About</a>
+        <a href="/blog/">Blog</a>
 	<head>
 		<meta charset="utf-8" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
@@ -22,12 +26,23 @@ const goal = 3;
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
 		<title>{pageTitle}</title>
+        <style define:vars={{skillColor,fontWeight,textCase}}>
+            h1 {
+              color: blue;
+              font-size: 4rem;
+            }
+            .skill {
+                color: var(--skillColor);
+                font-weight: var(--fontWeight);
+                text-transform: var(--textCase);
+            }
+        </style>
 	</head>
 	<body>
         <h1>{pageTitle}</h1>
 		<h1>Southwest Colorado Skiing</h1>
-            <p>Southwest Colorado offers a style of skiing that feels both rugged and intimate, shaped by the dramatic San Juan Mountains and the character of the small communities tucked between them. The region’s major resorts each bring something distinct: Purgatory Resort delivers long cruisers, playful terrain, and a family‑friendly vibe just north of Durango; Telluride Ski Resort pairs world‑class steeps and expansive alpine bowls with one of the most stunning box‑canyon backdrops in North America; and Wolf Creek Ski Area is famous for deep, consistent snowfall and a laid‑back, locals-first atmosphere. Together, they create a landscape where skiers can chase powder in remote basins, carve sunlit groomers, or explore quiet glades—all within a region known for its authenticity, dramatic scenery, and a winter culture that still feels connected to the mountains rather than the crowds.</p>
-            <p>My passion for skiing is rooted in the rugged beauty of Southwest Colorado. The San Juan Mountains are his playground—unpredictable, dramatic, and endlessly rewarding. Whether carving early‑morning groomers at Purgatory or exploring the deep backcountry near Silverton, he finds energy in the terrain and inspiration in the solitude. For him, skiing here isn’t just a sport; it’s a way to stay connected to the mountains that define this corner of Colorado.</p>
+            <p>Southwest Colorado offers a style of skiing that feels both rugged and intimate, shaped by the dramatic San Juan Mountains and the character of the small communities tucked between them. The regions major resorts each bring something distinct: Purgatory Resort delivers long cruisers, playful terrain, and a family friendly vibe just north of Durango; Telluride Ski Resort pairs world class steeps and expansive alpine bowls with one of the most stunning boxcanyon backdrops in North America; and Wolf Creek Ski Area is famous for deep, consistent snowfall and a laid back, locals-first atmosphere. Together, they create a landscape where skiers can chase powder in remote basins, carve sunlit groomers, or explore quiet glades all within a region known for its authenticity, dramatic scenery, and a winter culture that still feels connected to the mountains rather than the crowds.</p>
+            <p>My passion for skiing is rooted in the rugged beauty of Southwest Colorado. The San Juan Mountains are his playground unpredictable, dramatic, and endlessly rewarding. Whether carving early morning groomers at Purgatory or exploring the deep backcountry near Silverton, he finds energy in the terrain and inspiration in the solitude. For him, skiing here is not just a sport; it is a way to stay connected to the mountains that define this corner of Colorado.</p>
             <p>Here are a few facts about me:</p>
 <ul>
   <li>My name is {identity.firstName}.</li>
@@ -38,7 +53,7 @@ const goal = 3;
 </ul>
 <p>My skills are:</p>
 <ul>
-  {skills.map((skill) => <li>{skill}</li>)}
+  {skills.map((skill) => <li class = "skill">{skill}</li>)}
 </ul>
 {happy && <p>I am happy to be learning Astro!</p>}
 
