@@ -1,22 +1,8 @@
 ---
-import '../styles/global.css';
-import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
+import BaseLayout from "../layouts/BaseLayout.astro";
 const pageTitle = 'Blog';
 ---
-<html lang="en">
-    <Header/>
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>{pageTitle}</title>
-	</head>
-	<body>
-        <h1>{pageTitle}</h1>
-		<h1>Southwest Colorado Skiing</h1>
+<BaseLayout pageTitle={pageTitle}>
             <h1>Recent Experiences</h1>
             <p>Skiing Taos Ski Valley felt like stepping into a place where the mountains demand your full attention in the best possible way. The day started with that classic Taos mix of cold air, bright sun, and steep terrain rising straight out of the base area. Hiking up to Highline Ridge and pushing toward Kachina Peak (Konicha Peak) set the tone: thin air, wind scoured ridges, and that quiet intensity you only get when you are climbing for your turns. Dropping into the High Bowl was the payoff wide, chalky, and steep enough to make every turn feel deliberate. It is the kind of run that reminds you why Taos has a reputation for rewarding skiers who earn their lines.</p>
             <p>                After skiing, the vibe shifted completely. Grabbing chiles in town that perfect New Mexico heat, smoky and rich felt like the unofficial cooldown ritual, the kind of local flavor that makes the whole trip feel rooted in place. And parking at the secret spot by Lift 4 added its own charm: tucked away, close enough to feel like you beat the system, and just far enough off the beaten path to feel like a local trick. It all came together as one of those days where the skiing, the culture, and the little discoveries around the mountain made the experience feel personal.</p>
@@ -25,9 +11,4 @@ const pageTitle = 'Blog';
                 <li><a href="/posts/post-2/">Post 2</a></li>
                 <li><a href="/posts/post-3/">Post 3</a></li>
             </ul>
-        <Footer />
-        <script>
-            import "../scripts/menu.js";
-        </script>
-	</body>
-</html>
+</BaseLayout>
